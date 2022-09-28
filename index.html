@@ -24,12 +24,12 @@
         <table>
             <tr class="head">
                 <td>S/N</td>
-                <td>Course</td>
+                <td >Course</td>
                 <td>Credit</td>
                 <td>Grade</td>
             </tr>
 
-            <tr >
+            <tr id="example" class="one">
                 <td class="no">1</td>
                 <td class="course">
                     <input type="text" maxlength="10">
@@ -42,7 +42,20 @@
                 </td>
             </tr>
 
-            <tr>
+            <tr id="example2" class="one">
+                <td class="no">2</td>
+                <td class="course">
+                    <input type="text">
+                </td>
+                <td class="unit">
+                    <input type="number" maxlength="2">
+                </td>
+                <td class="grade">
+                    <input type="text" maxlength="2">
+                </td>
+            </tr><br>
+
+            <tr id="example3" class="one">
                 <td class="no">2</td>
                 <td class="course">
                     <input type="text">
@@ -54,21 +67,24 @@
                     <input type="text" maxlength="2">
                 </td>
             </tr>
+            
         </table>
 
         <div class="base">
-            <button class="add">
+            <button class="add" id="add">
                 <i class="fa-solid fa-plus"></i>
             </button>
 
-            <button class="calc">
+            <button class="calc" id="calc">
                 <i class="fa-solid fa-calculator"></i>
             </button>
 
-            <button class="remove">
+            <button class="remove" id="remove">
                 <i class="fa-solid fa-minus"></i>
             </button>
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
