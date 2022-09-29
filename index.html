@@ -1,67 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cgpa Calculator</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cgpa Calculator</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="https://kit.fontawesome.com/6bd9574680.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://kit.fontawesome.com/6bd9574680.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <div class="top">
-        <i class="fa-solid fa-arrow-left"></i>
-        <h2>Enter Grade Details</h2>
-        <span>LOAD</span>
-    </div>
+  <header class="header">
+    <nav class="nav">
+      <h1>Enter Grade Details</h1>
+      <p>Load</p>
+    </nav>
+  </header>
 
-    <div class="body">
-        <table>
-            <thead>
-                <tr class="head">
-                    <td>S/N</td>
-                    <td >Course</td>
-                    <td>Credit</td>
-                    <td>Grade</td>
-                </tr>
-            </thead>
-
-            <tbody id="set">
-                <tr id="first" class="one">
-                    <td class="no">1</td>
-                    <td class="course">
-                        <input id="course" type="text" maxlength="10">
-                    </td>
-                    <td class="unit">
-                        <input id="unit" type="number" min="1" max="9">
-                    </td>
-                    <td class="grade">
-                        <input type="text" maxlength="2">
-                    </td>
-                </tr>
+  <main class="main">
+    <div class="table-container">
+      <table class="table">
+        <thead class="table-head">
+          <tr class="table-row">
+            <td class="table-data">S/N</td>
+            <td class="table-data">Course</td>
+            <td class="table-data">Credit</td>
+            <td class="table-data">Grade</td>
+            <td class="table-data">Delete all</td>
+          </tr>
+        </thead>
+        <tbody class="table-body">
+          <tr class="table-row">
+            <td class="table-data">1</td>
+            <td class="table-data">
+              <input type="text" name="courseName" id="" disabled>
+            </td>
+            <td class="table-data">
+              <input type="number" name="courseCredit" id="" disabled>
+            </td>
+            <td class="table-data">
+              <input type="text" name="courseGrade" id="" disabled>
+            </td>
+            <td class="table-data">
+              <button class="deleteCourseBtn">X</button>
+            </td>
+            </tr>
             </tbody>
-        </table>
-
-        <div class="base">
-            <button class="add" id="add">
-                <i class="fa-solid fa-plus"></i>
-            </button>
-
-            <button class="calc" id="calc">
-                <i class="fa-solid fa-calculator"></i>
-            </button>
-
-            <button class="remove" id="remove">
-                <i class="fa-solid fa-minus"></i>
-            </button>
-        </div>
+      </table>
     </div>
+    <div class="btn-container">
+      <button class="addNewCourseBtn">
+        <i class="fa-solid fa-plus">Plus</i>
+      </button>
+      <button class="calculateGPAbtn">
+        <i class="fa-brand fa-calc">Calculate</i>
+      </button>
+      <button class="saveUpdate">
+        <i class="fa-solid fa-check">Check</i>
+      </button>
+    </div>
+  </main>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
