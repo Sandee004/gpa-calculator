@@ -20,9 +20,13 @@ add.addEventListener('click', function() {
     var cel4 = new_row.insertCell(3);
 
     cel1.innerHTML = x++
-    cel2.innerHTML = '<input style="width: 150px; border: none;; background: transparent; text-align: center; font-size: 18px; border-bottom: 1px solid black">'
+    cel2.innerHTML = '<input class="course" style="width: 150px; border: none;; background: transparent; text-align: center; font-size: 18px; border-bottom: 1px solid black">'
     cel3.innerHTML = '<input style="width: 30px; font-size: 18px; text-align: center; background: transparent; border: none; border-bottom: 1px solid black">'
     cel4.innerHTML = '<input style="width: 30px; font-size: 18px; text-align: center; background: transparent; border: none; border-bottom: 1px solid black">'
+
+    cel2.setAttribute('class', 'course')
+    cel3.setAttribute('class', 'unit')
+    cel4.setAttribute('class', 'grade')
 })
 
 
