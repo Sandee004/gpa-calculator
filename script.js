@@ -7,7 +7,12 @@ var tableEl = document.querySelector('table')
 var x= 2
 
 //Variables for add button
+var new_row = tableEl.insertRow(tableEl.rows.length)
 
+    var cel1 = new_row.insertCell(0);
+    var cel2 = new_row.insertCell(1);
+    var cel3 = new_row.insertCell(2);
+    var cel4 = new_row.insertCell(3);
 
 
 //Function for the add button
@@ -31,5 +36,14 @@ add.addEventListener('click', function() {
 
 
 //Function for the delete button
+var div = document.getElementById('set')
+remove.addEventListener('click', function() {
+    div.removeChild(div.lastChild)
+})
 
 //Function for the calculations
+calc.addEventListener('click', function() {
+    var values = document.getElementById('unit').value
+    var cel3_val = document.querySelector('.unit').value|0
+    alert(values + cel3_val)
+})
