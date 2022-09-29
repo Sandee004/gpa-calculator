@@ -76,8 +76,9 @@ body {
   outline: none;
 }
 .body .base {
-  margin-top: 90%;
   height: 98px;
+  bottom: 0;
+  position: absolute;
 }
 .body .base .add {
   margin: 0 10px 0 5px;
