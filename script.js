@@ -5,6 +5,23 @@ const saveEditBtn = document.querySelector(".saveEditBtn");
 const editGradeBtns = document.querySelectorAll(".edit-grade-btn");
 const tableRows = document.querySelectorAll(".table-body .table-row");
 
+/**
+ * @param  { HTMLTableRowElement } sourceRow - row whose inputs are beind edited
+ * @desc Makes sure that all other table row inputs that are not being currently edited are disabled and their isbeingedited data property is set to false.
+ */
+const disableOtherInputs = (sourceRow) => {
+  tableRows.forEach((row) => {
+    if (row !== sourceRow) {
+      // if the row in the loop is not the sourceRow
+      row.querySelectorAll("input").forEach((input) => {
+        // get all child inputs of rows that are not being edited
+        input.disabled = true;
+      });
+      row.dataset.isbeingedited = "false"; // sets the isbeingedited attribute to false
+    }
+  });
+};
+
 const tableEl = document.querySelector("table");
 /**
  * @param  { HTMLButtonElement } ev - event object
@@ -28,28 +45,12 @@ const makeInputEditable = (ev) => {
   console.log(parentRow.dataset.isbeingedited);
 };
 
-/**
- * @param  { HTMLTableRowElement } sourceRow - row whose inputs are beind edited
- * @desc Makes sure that all other table row inputs that are not being currently edited are disabled and their isbeingedited data property is set to false.
- */
-const disableOtherInputs = (sourceRow) => {
-  tableRows.forEach((row) => {
-    if (row !== sourceRow) {
-      // if the row in the loop is not the sourceRow
-      row.querySelectorAll("input").forEach((input) => {
-        // get all child inputs of rows that are not being edited
-        input.disabled = true;
-      });
-      row.dataset.isbeingedited = "false"; // sets the isbeingedited attribute to false
-    }
-  });
-};
+
 /**
  * @desc Finishes editing of inputs by making all previously enabled inputs disabled.
  */
 const finishEditing = () => {
   tableRows.forEach((row) => {
-    console.log(row, row.dataset.isbeingedited);
     if (row.dataset.isbeingedited === "true") {
       row.querySelectorAll("input").forEach((input) => {
         input.disabled = true;
