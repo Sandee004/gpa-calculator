@@ -32,6 +32,12 @@ body {
   padding: 0.35em 0.5em;
   outline: 0;
 }
+.table-body .edit-grade-btn {
+  width: 100%;
+}
+.table-body .delete-course-btn {
+  width: 100%;
+}
 
 .btn-container {
   display: flex;
@@ -45,4 +51,7 @@ body {
   border: 0;
   background-color: rgb(252, 75, 11);
   color: white;
+}
+.btn-container button i {
+  pointer-events: none;
 }/*# sourceMappingURL=style.css.map */
