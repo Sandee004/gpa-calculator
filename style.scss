@@ -35,7 +35,7 @@ body {
 .table {
   width: 100%;
   border-collapse: separate; //Makes sure the table elements are not squashed together
-  border-spacing: 2em 1em; // wem spacing on the sides and 1em spacing top and bottom
+  border-spacing: 2em 1em; // 2em spacing on the sides and 1em spacing top and bottom
   text-align: center;
 
   &-body {
@@ -43,6 +43,14 @@ body {
       width: 100%;
       padding: .35em .5em;
       outline: 0;
+    }
+
+    .edit-grade-btn {
+      width: 100%;
+    }
+
+    .delete-course-btn {
+      width: 100%;
     }
   }
 }
@@ -59,5 +67,9 @@ body {
     border: 0;
     background-color: rgb(252, 75, 11);
     color: white;
+
+    i {
+      pointer-events: none;
+    }
   }
 }
