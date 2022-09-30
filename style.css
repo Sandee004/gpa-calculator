@@ -10,125 +10,39 @@ body {
   overflow-x: hidden;
 }
 
-.top {
-  height: 50px;
+.header {
   color: white;
-  padding: 30px 0 0 0;
+  padding: 1em 2em;
   background: rgb(252, 75, 11);
 }
-.top i {
-  margin-left: 15px;
-}
-.top h2 {
-  display: inline;
-  vertical-align: middle;
-  margin: 0px 20px 0 20px;
+.header .nav {
+  display: flex;
+  height: 10vh;
+  align-items: center;
 }
 
-.body {
-  color: black;
-  text-align: center;
-}
-.body table {
+.table {
   width: 100%;
-  margin-top: 10px;
-  font-size: 16px;
+  border-collapse: separate;
+  border-spacing: 2em 1em;
   text-align: center;
 }
-.body table td {
-  padding-bottom: 15px;
-}
-.body table .head {
-  font-size: 18px;
-}
-.body table .course input {
-  border: none;
-  border-bottom: 1px solid black;
-  background: transparent;
-  text-align: center;
-  font-size: 18px;
-  width: 150px;
-}
-.body table .course input:focus {
-  border-bottom: 2.2px solid rgb(252, 75, 11);
-  outline: none;
-}
-.body table .unit input {
-  border: none;
-  border-bottom: 1px solid black;
-  background: transparent;
-  text-align: center;
-  font-size: 18px;
-  width: 30px;
-}
-.body table .unit input:focus {
-  border-bottom: 2.2px solid rgb(252, 75, 11);
-  outline: none;
-}
-.body table .grade input {
-  border: none;
-  border-bottom: 1px solid black;
-  background: transparent;
-  text-align: center;
-  font-size: 18px;
-  width: 30px;
-}
-.body table .grade input:focus {
-  border-bottom: 2.2px solid rgb(252, 75, 11);
-  outline: none;
-}
-.body .base {
-  height: 98px;
+.table-body input {
   width: 100%;
-  bottom: 0;
-  text-align: center;
-  background: whitesmoke;
-  position: -webkit-sticky;
-  position: sticky;
+  padding: 0.35em 0.5em;
+  outline: 0;
 }
-.body .base .add {
-  margin: 0 10px 0 5px;
-  width: 65px;
-  height: 65px;
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+.btn-container button {
+  min-width: 5em;
+  aspect-ratio: 1;
   border-radius: 50%;
-  background: rgb(252, 75, 11);
+  border: 0;
+  background-color: rgb(252, 75, 11);
   color: white;
-  border: none;
-  text-align: center;
-  font-size: 20px;
-}
-.body .base .add i {
-  margin: 15px 0;
-}
-.body .base .add:hover {
-  cursor: pointer;
-}
-.body .base .calc {
-  width: 95px;
-  border: none;
-  height: 95px;
-  background: rgb(252, 75, 11);
-  color: white;
-  font-size: 50px;
-  font-weight: 400;
-  border-radius: 50%;
-  margin: 0 40px 0 40px;
-}
-.body .base .calc:hover {
-  cursor: pointer;
-}
-.body .base .remove {
-  margin: 0 5px 0 10px;
-  vertical-align: middle;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: rgb(252, 75, 11);
-  color: white;
-  border: none;
-  text-align: center;
-  font-size: 20px;
-}
-.body .base .remove:hover {
-  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */
