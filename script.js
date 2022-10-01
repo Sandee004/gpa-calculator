@@ -26,7 +26,7 @@ add.addEventListener('click', function() {
 
     cel1.innerHTML = x++
     cel2.innerHTML = '<input class="course" style="width: 150px; border: none;; background: transparent; text-align: center; font-size: 18px; border-bottom: 1px solid black">'
-    cel3.innerHTML = '<input style="width: 30px; font-size: 18px; text-align: center; background: transparent; border: none; border-bottom: 1px solid black">'
+    cel3.innerHTML = '<input id="testt" type="number" style="width: 30px; font-size: 18px; text-align: center; background: transparent; border: none; border-bottom: 1px solid black">'
     cel4.innerHTML = '<input style="width: 30px; font-size: 18px; text-align: center; background: transparent; border: none; border-bottom: 1px solid black">'
 
     cel2.setAttribute('class', 'course')
@@ -43,7 +43,8 @@ remove.addEventListener('click', function() {
 
 //Function for the calculations
 calc.addEventListener('click', function() {
-    var values = document.getElementById('unit').value
-    var cel3_val = document.querySelector('.unit').value|0
-    alert(values + cel3_val)
+    var values = parseInt(document.getElementById('unit').value |0)
+    var cel3_val = parseInt(document.getElementById("testt").value|0)
+    //var cel4_val = parseInt(document.querySelectorAll(".testt").value|0)
+    alert(values+cel3_val)
 })
