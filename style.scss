@@ -8,6 +8,11 @@ body {
   height: 100vh;
   overflow-x: hidden;
 }
+@media (max-width: 700px) {
+    body{
+        display: none;
+    }
+}
 // I don't quite see the point of this mixin
 @mixin inputs {
   border: none;
@@ -29,6 +34,7 @@ body {
     display: flex;
     height: 10vh; // the nav element will always be as tall as 10% of the viewport
     align-items: center;
+    justify-content: center;
   }
 }
 
@@ -44,6 +50,8 @@ body {
       padding: .35em .5em;
       outline: 0;
     }
+
+    
 
     .edit-grade-btn {
       width: 100%;

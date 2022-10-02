@@ -28,22 +28,19 @@
       <table class="table">
         <thead class="table-head">
           <tr class="table-row">
-            <td class="table-data"><i class="fa-solid fa-pencil">Edit</i></td>
             <td class="table-data">S/N</td>
             <td class="table-data">Course</td>
             <td class="table-data">Credit</td>
             <td class="table-data">Grade</td>
-            <td class="table-data">Delete all</td>
+            <!--td class="table-data"><i class="fa-solid fa-pencil">Edit</i></td-->
+            <td class="edit-grade-btn"></td>
+            <td class="table-data"></td>
           </tr>
         </thead>
         <tbody class="table-body">
           <tr class="table-row" data-isBeingEdited="false">
             <!-- the data property allows me to set custom attributes that I can interact with via JavaScript -->
-            <td class="table-data edit-data">
-              <button class="edit-grade-btn">
-                <i class="fa-solid fa-pencil">Edit</i>
-              </button>
-            </td>
+            
             <td class="table-data serial-number">1</td>
             <td class="table-data name-data">
               <input type="text" name="courseName" id="" disabled>
@@ -54,17 +51,17 @@
             <td class="table-data grade-data">
               <input type="text" name="courseGrade" id="" disabled>
             </td>
+            <td class="table-data edit-data">
+                <button class="edit-grade-btn">Edit</button>
+            </td>
             <td class="table-data">
-              <button class="delete-course-btn">X</button>
+              <button class="delete-course-btn">Delete</button>
             </td>
             </tr>
+
             <tr class="table-row" data-isBeingEdited="false">
               <!-- the data property allows me to set custom attributes that I can interact with via JavaScript -->
-              <td class="table-data edit-data">
-                <button class="edit-grade-btn">
-                  <i class="fa-solid fa-pencil">Edit</i>
-                </button>
-              </td>
+              
               <td class="table-data serial-number">2</td>
               <td class="table-data name-data">
                 <input type="text" name="courseName" id="" disabled>
@@ -75,17 +72,17 @@
               <td class="table-data grade-data">
                 <input type="text" name="courseGrade" id="" disabled>
               </td>
+            <td class="table-data edit-data">
+                <button class="edit-grade-btn">Edit</button>
+            </td>
               <td class="table-data">
-                <button class="delete-course-btn">X</button>
+                <button class="delete-course-btn">Delete</button>
               </td>
             </tr>
+
             <tr class="table-row" data-isBeingEdited="false">
               <!-- the data property allows me to set custom attributes that I can interact with via JavaScript -->
-              <td class="table-data edit-data">
-                <button class="edit-grade-btn">
-                  <i class="fa-solid fa-pencil">Edit</i>
-                </button>
-              </td>
+              
               <td class="table-data serial-number">3</td>
               <td class="table-data name-data">
                 <input type="text" name="courseName" id="" disabled>
@@ -96,17 +93,17 @@
               <td class="table-data grade-data">
                 <input type="text" name="courseGrade" id="" disabled>
               </td>
+            <td class="table-data edit-data">
+                <button class="edit-grade-btn">Edit</button>
+            </td>
               <td class="table-data">
-                <button class="delete-course-btn">X</button>
+                <button class="delete-course-btn">Delete</button>
               </td>
             </tr>
+
             <tr class="table-row" data-isBeingEdited="false">
               <!-- the data property allows me to set custom attributes that I can interact with via JavaScript -->
-              <td class="table-data edit-data">
-                <button class="edit-grade-btn">
-                  <i class="fa-solid fa-pencil">Edit</i>
-                </button>
-              </td>
+              
               <td class="table-data serial-number">4</td>
                 <td class="table-data name-data">
               <input type="text" name="courseName" id="" disabled>
@@ -117,8 +114,11 @@
             <td class="table-data grade-data">
               <input type="text" name="courseGrade" id="" disabled>
             </td>
+            <td class="table-data edit-data">
+                <button class="edit-grade-btn">Edit</button>
+            </td>
             <td class="table-data">
-              <button class="delete-course-btn">X</button>
+              <button class="delete-course-btn">Delete</button>
             </td>
           </tr>
           </tbody>
