@@ -1,32 +1,9 @@
 const addNewCourseBtn = document.querySelector(".addNewCourseBtn");
 const calculateGPABtn = document.querySelector(".calculateGPAbtn");
-const removeCourseBtns = document.querySelectorAll(".deleteCourseBtn");
+const deleteCourseBtns = document.querySelectorAll(".delete-course-btn");
 const saveEditBtn = document.querySelector(".saveEditBtn");
 const editGradeBtns = document.querySelectorAll(".edit-grade-btn");
 const tableRows = document.querySelectorAll(".table-body .table-row");
-
-const tableEl = document.querySelector("table");
-/**
- * @param  { HTMLButtonElement } ev - event object
- * @desc makes all the input in the button parent row editable and sets the parent row isbeingedited property to true
- */
-const makeInputEditable = (ev) => {
-  let btn = ev.target; // get the button that fired the event
-  let parentRow = btn.closest(".table-row"); // get the button's parent row
-
-  disableOtherInputs(parentRow);
-  let inputsAreBeingEdited = parentRow.dataset.isbeingedited; // see if the element is being edited or not through our data attribute in the HTML
-  let rowInputs = parentRow.querySelectorAll("input"); // get all the inputs in the row gotten from parentRow
-  rowInputs.forEach((input) => {
-    input.disabled = false; // makes all disabled inputs enabled and editable
-  });
-  if (inputsAreBeingEdited === "false") {
-    parentRow.dataset.isbeingedited = "true"; // sets the custom data attribute to the opposite value. WARNING!!! "true" and "false" are of type string and are NOT booleans.
-  } else {
-    parentRow.dataset.isbeingedited = "false"; // sets the custom data attribute to the opposite value. WARNING!!! "true" and "false" are of type string and are NOT booleans.
-  }
-  console.log(parentRow.dataset.isbeingedited);
-};
 
 /**
  * @param  { HTMLTableRowElement } sourceRow - row whose inputs are beind edited
@@ -44,12 +21,34 @@ const disableOtherInputs = (sourceRow) => {
     }
   });
 };
+
+const tableEl = document.querySelector("table");
+/**
+ * @param  { HTMLButtonElement } ev - event target
+ * @desc makes all the input in the button parent row editable and sets the parent row isbeingedited property to true
+ */
+const makeInputEditable = (ev) => {
+  let btn = ev; // get the button that fired the event
+  let parentRow = btn.closest(".table-row"); // get the button's parent row
+
+  disableOtherInputs(parentRow);
+  let inputsAreBeingEdited = parentRow.dataset.isbeingedited; // see if the element is being edited or not through our data attribute in the HTML
+  let rowInputs = parentRow.querySelectorAll("input"); // get all the inputs in the row gotten from parentRow
+  rowInputs.forEach((input) => {
+    input.disabled = false; // makes all disabled inputs enabled and editable
+  });
+  if (inputsAreBeingEdited === "false") {
+    parentRow.dataset.isbeingedited = "true"; // sets the custom data attribute to the opposite value. WARNING!!! "true" and "false" are of type string and are NOT booleans.
+  } else {
+    parentRow.dataset.isbeingedited = "false"; // sets the custom data attribute to the opposite value. WARNING!!! "true" and "false" are of type string and are NOT booleans.
+  }
+};
+
 /**
  * @desc Finishes editing of inputs by making all previously enabled inputs disabled.
  */
 const finishEditing = () => {
   tableRows.forEach((row) => {
-    console.log(row, row.dataset.isbeingedited);
     if (row.dataset.isbeingedited === "true") {
       row.querySelectorAll("input").forEach((input) => {
         input.disabled = true;
@@ -58,10 +57,37 @@ const finishEditing = () => {
     }
   });
 };
+/**
+ * @param  { HTMLButtonElement } ev  - event target
+ * @desc delete the parent row of the btn clicked and update the serial numbers of other rows accordingly
+ */
+const deleteCourse = (ev) => {
+  let deleteBtn = ev;
+  let parentRow = deleteBtn.closest(".table-row");
+  let tbody = document.querySelector("tbody");
+  tbody.removeChild(parentRow);
+  updateSerialNumber();
+};
+/**
+ * @desc updates the serial number of all the table data elements with class "serial-number"
+ */
+const updateSerialNumber = () => {
+  let serialNumber = document.querySelectorAll(".serial-number"); // Gets all the table data elements with class "serial-number"
+  let numberOfSerialNumberElements = serialNumber.length; // gets how many serialNumber elements exist in the DOM
+  for (let index = 0; index < numberOfSerialNumberElements; index++) {
+    serialNumber[index].textContent = index + 1; // Updates the textContent of each serialNumber based on its index in the DOM
+  }
+};
 
 editGradeBtns.forEach((btn) => {
   btn.addEventListener("click", (ev) => {
-    makeInputEditable(ev);
+    makeInputEditable(ev.target);
+  });
+});
+
+deleteCourseBtns.forEach((btn) => {
+  btn.addEventListener("click", (ev) => {
+    deleteCourse(ev.target);
   });
 });
 
@@ -72,7 +98,6 @@ saveEditBtn.addEventListener("click", (ev) => {
 // Disable all inputs when the page loads
 window.addEventListener("load", () => {
   let inputs = document.querySelectorAll("input");
-  console.log(inputs);
   inputs.forEach((input) => {
     input.disabled = true;
   });
