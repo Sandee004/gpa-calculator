@@ -24,13 +24,22 @@ body{
     color: white;
     padding: 30px 0 0 0;
     background: rgb(252, 75, 11);
-    i{
-        margin-left: 15px;
+    text-align: center;
+    a{
+        text-decoration: none;
+        color: white;
+        i{
+            margin-left: 0vw;
+            left: 0;
+            &:hover{
+                cursor: pointer;
+            }
+        }
     }
     h2{
         display: inline;
         vertical-align: middle;
-        margin: 0px 20px 0 20px;
+        margin: 0px 5vw 0 5vw;
     }
 }
 .body{

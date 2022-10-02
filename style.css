@@ -15,14 +15,23 @@ body {
   color: white;
   padding: 30px 0 0 0;
   background: rgb(252, 75, 11);
+  text-align: center;
 }
-.top i {
-  margin-left: 15px;
+.top a {
+  text-decoration: none;
+  color: white;
+}
+.top a i {
+  margin-left: 0vw;
+  left: 0;
+}
+.top a i:hover {
+  cursor: pointer;
 }
 .top h2 {
   display: inline;
   vertical-align: middle;
-  margin: 0px 20px 0 20px;
+  margin: 0px 5vw 0 5vw;
 }
 
 .body {
