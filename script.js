@@ -84,7 +84,8 @@ const updateSerialNumber = () => {
  * @desc creates a new course row with its inputs
  */
 const addNewCourse = () => {
-  let newRow = tableEl.insertRow(); // creates a new tr element and appends it to the end of the tbody
+  const tableBody = tableEl.querySelector(".table-body");
+  let newRow = tableBody.insertRow(); // creates a new tr element and appends it to the end of the tbody
   newRow.classList.add("table-row"); // adds the class "table-row" to the new row
   newRow.setAttribute("data-isBeingEdited", "false"); // adds the custom data attribute
   // Create 6 new td element children of the new row
@@ -150,7 +151,7 @@ const addNewCourse = () => {
   });
 
   console.log(newCells);
-};
+};;
 
 editGradeBtns.forEach((btn) => {
   btn.addEventListener("click", (ev) => {
