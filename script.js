@@ -4,7 +4,6 @@ const deleteCourseBtns = document.querySelectorAll(".delete-course-btn");
 const saveEditBtn = document.querySelector(".saveEditBtn");
 const editGradeBtns = document.querySelectorAll(".edit-grade-btn");
 
-
 /**
  * @param  { HTMLTableRowElement } sourceRow - row whose inputs are beind edited
  * @desc Makes sure that all other table row inputs that are not being currently edited are disabled and their isbeingedited data property is set to false.
@@ -84,8 +83,9 @@ const updateSerialNumber = () => {
  * @desc creates a new course row with its inputs
  */
 const addNewCourse = () => {
-  let newRow = tableEl.insertRow(); // creates a new tr element and appends it to the end of the tbody
-  newRow.classList.add("table-row"); // adds the class "table-row" to the new row
+  const tableBody = tableEl.querySelector(".table-body");
+  let newRow = tableBody.insertRow(); // creates a new tr element and appends it to the end of the tbody
+  newRow.classList.add("table-row", "course-row"); // adds the class "table-row" to the new row
   newRow.setAttribute("data-isBeingEdited", "false"); // adds the custom data attribute
   // Create 6 new td element children of the new row
   for (let rowAmount = 0; rowAmount < 6; rowAmount++) {
@@ -148,8 +148,105 @@ const addNewCourse = () => {
   deleteNewCourseBtn.addEventListener("click", (ev) => {
     deleteCourse(ev.target);
   });
+};
+/**
+ * @desc takes the inputs values and returns the computed course data, namely the creditUnits and the grades for calculation of the GPA
+ * @returns coursesData - an Object of arrays for the creditUnits and grades
+ */
+const getCoursesData = () => {
+  const courses = document.querySelectorAll(".course-row"); // gets all courses inputed
+  let coursesData = {
+    creditUnits: [], // initializes an empty array to store all the creditUnits
+    grades: [], // initializes an empty array to store all the grades
+  };
+  courses.forEach((course) => {
+    // for each course inputed
+    let courseCredit = parseInt(
+      course.querySelector("input[name='courseCredit']").value
+    ); // get the value of the input with name 'courseCredit
+    let courseLetterGrade = course.querySelector(
+      "input[name='courseGrade']"
+    ).value; // get the value of the input with name 'courseGrade'
+    let courseGrade; // initializes a new variable to store the course grade
+    switch (courseLetterGrade) {
+      // if the value of the courseLetterGrade is 'A' or 'a' then let the courseGrade be 5
+      case "A":
+      case "a":
+        courseGrade = 5;
+        break;
+      // if the value of the courseLetterGrade is 'B' or 'b' then let the courseGrade be 4 and so on...
+      case "B":
+      case "b":
+        courseGrade = 4;
+        break;
+      case "C":
+      case "c":
+        courseGrade = 3;
+        break;
+      case "D":
+      case "d":
+        courseGrade = 2;
+        break;
+      case "E":
+      case "e":
+        courseGrade = 1;
+        break;
+      case "F":
+      case "f":
+        courseGrade = 0;
+        break;
 
-  console.log(newCells);
+      default:
+        break;
+    }
+    coursesData.grades.push(courseGrade); // add the courseGrade value of the course in the loop to the grades array of the coursesData object
+    coursesData.creditUnits.push(courseCredit); // add the courseCredit value of the course in the loop to the creditUnits array of the coursesData object
+  });
+
+  return coursesData; // returns the coursesData object
+};
+
+/**
+ * @desc Calculates the GPA from the coursesData object and outputs it to the HTML
+ */
+const calculateGPA = () => {
+  const gpaResultContainer = document.querySelector(".gpa-results-container");
+  const creditUnitResult = document.querySelector(".credit-unit-result");
+  const qualityPointResult = document.querySelector(".quality-point-result");
+  const gradePointResult = document.querySelector(".grade-point-result");
+
+  let qualityPoints = []; // initializes an array to store all the quality points going to be calculated
+
+  const { grades, creditUnits } = getCoursesData(); // deconstructs the grades and creditUnits arrays from the coursesData object and stores them to their own separate variables
+
+  const totalGradePoints = grades.reduce(
+    // adds up all the elements in the grades array and save it to the totalGradePoints variale
+    (currentSum, nextValue) => currentSum + nextValue
+  );
+
+  const totalCreditUnits = creditUnits.reduce(
+    // adds up all the elements in the creditUnits array and save it to the totalCreditUnits variable
+    (currentSum, nextValue) => currentSum + nextValue
+  );
+
+  // calculate the quality point for each course by multiplying the courseGrade and its corresponding credit unit
+  grades.forEach((courseGrade, index) => {
+    let gradeQualityPoint = courseGrade * creditUnits[index];
+    qualityPoints.push(gradeQualityPoint);
+  });
+
+  const totalQualityPoints = qualityPoints.reduce(
+    // adds up all the elements in the qualityPoints array and save it to the totalQualityPoints variable
+    (currentSum, nextValue) => currentSum + nextValue
+  );
+
+  const GPA = totalQualityPoints / totalCreditUnits; // gets the GPA by dividing the totalQualityPoints by the totalCreditUnits
+
+  creditUnitResult.textContent = totalCreditUnits;
+  qualityPointResult.textContent = totalQualityPoints;
+  gradePointResult.textContent = GPA;
+
+  gpaResultContainer.classList.remove("hide");
 };
 
 editGradeBtns.forEach((btn) => {
@@ -169,6 +266,8 @@ saveEditBtn.addEventListener("click", (ev) => {
 });
 
 addNewCourseBtn.addEventListener("click", addNewCourse);
+
+calculateGPABtn.addEventListener("click", calculateGPA);
 
 // Disable all inputs when the page loads
 window.addEventListener("load", () => {

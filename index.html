@@ -38,7 +38,28 @@
           </tr>
         </thead>
         <tbody class="table-body">
-          <tr class="table-row" data-isBeingEdited="false">
+          <tr class="table-row course-row" data-isBeingEdited="false">
+            <!-- the data property allows me to set custom attributes that I can interact with via JavaScript -->
+            <td class="table-data edit-data">
+              <button class="edit-grade-btn">
+                <i class="fa-solid fa-pencil">Edit</i>
+              </button>
+            </td>
+            <td class="table-data serial-number">1</td>
+            <td class="table-data name-data">
+              <input type="text" name="courseName" id="" disabled>
+            </td>
+            <td class="table-data credit-data">
+              <input type="number" name="courseCredit" id="" disabled>
+            </td>
+            <td class="table-data grade-data">
+              <input type="text" name="courseGrade" id="" disabled>
+            </td>
+            <td class="table-data">
+              <button class="delete-course-btn">X</button>
+            </td>
+          </tr>
+          <tr class="table-row course-row" data-isBeingEdited="false">
             <!-- the data property allows me to set custom attributes that I can interact with via JavaScript -->
             
             <td class="table-data serial-number">1</td>
@@ -58,7 +79,6 @@
               <button class="delete-course-btn">Delete</button>
             </td>
             </tr>
-
             <tr class="table-row" data-isBeingEdited="false">
               <!-- the data property allows me to set custom attributes that I can interact with via JavaScript -->
               
@@ -134,6 +154,11 @@
       <button class="saveEditBtn">
         <i class="fa-solid fa-check">Save Edit</i>
       </button>
+    </div>
+    <div class="gpa-results-container hide">
+      <p class="credit-unit">Total Credit Unit: <span class="credit-unit-result"></span></p>
+      <p class="quality-point">Total Quality Point: <span class="quality-point-result"></span></p>
+      <p class="grade-point">Grade Point Average: <span class="grade-point-result"></span></p>
     </div>
   </main>
 
