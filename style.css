@@ -54,4 +54,15 @@ body {
 }
 .btn-container button i {
   pointer-events: none;
+}
+
+.gpa-results-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2em;
+}
+
+.hide {
+  display: none;
 }/*# sourceMappingURL=style.css.map */
